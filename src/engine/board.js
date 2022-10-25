@@ -47,9 +47,5 @@ export default class Board {
             this.currentPlayer = (this.currentPlayer === Player.WHITE ? Player.BLACK : Player.WHITE);
         }
     }
-    // if returns true - the square is empty
-   // isSquareEmpty (square) {
-   //  return this[square.row][square.col] === null;
- //   }
 }
 
