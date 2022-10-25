@@ -1,6 +1,7 @@
 import Piece from "./piece";
 import Square from "../square";
 import Player from "../player";
+import Board from "../board";
 
 export default class Pawn extends Piece {
     constructor(player) {
@@ -18,13 +19,17 @@ export default class Pawn extends Piece {
                 currentSquare.col
             );
             if (this.firstTurn === false) {
-                arrayOfAvailableMoves.push(availableSquare);
+                if (board.isSquareEmpty(availableSquare)) {
+                arrayOfAvailableMoves.push(availableSquare)
+                }
             } else {
                 let availableSquare2 = Square.at(
                     currentSquare.row + 2,
                     currentSquare.col
                 );
-                arrayOfAvailableMoves.push(availableSquare, availableSquare2);
+                if (board.isSquareEmpty(availableSquare) && board.isSquareEmpty(availableSquare2)) {
+                arrayOfAvailableMoves.push(availableSquare, availableSquare2) 
+            }
             }
         } else {
             let availableSquare = Square.at(
@@ -32,13 +37,17 @@ export default class Pawn extends Piece {
                 currentSquare.col
             );
             if (this.firstTurn === false) {
-                arrayOfAvailableMoves.push(availableSquare);
+                if (board.isSquareEmpty(availableSquare)) {
+                arrayOfAvailableMoves.push(availableSquare)
+            }
             } else {
                 let availableSquare2 = Square.at(
                     currentSquare.row - 2,
                     currentSquare.col
                 );
+                if (board.isSquareEmpty(availableSquare) && board.isSquareEmpty(availableSquare2)) {
                 arrayOfAvailableMoves.push(availableSquare, availableSquare2);
+                }
             }
         }
         return arrayOfAvailableMoves;
