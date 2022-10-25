@@ -17,17 +17,27 @@ export default class Rook extends Piece {
                 availableSquare.row !== currentSquare.row ||
                 availableSquare.col !== currentSquare.col
             ) {
+                if (board.isSquareEmpty(availableSquare)) {
                 arrayOfAvailableMoves.push(availableSquare);
+                } else {
+                    break;
+                }
             }
-
+        }
+        for (let i = 0; i < GameSettings.BOARD_SIZE; i++) {
             let availableSquare2 = Square.at(currentSquare.row, i);
             if (
                 availableSquare2.row !== currentSquare.row ||
                 availableSquare2.col !== currentSquare.col
             ) {
-                arrayOfAvailableMoves.push(availableSquare2);
+                if (board.isSquareEmpty(availableSquare2)) {
+                    arrayOfAvailableMoves.push(availableSquare2);
+                    } else {
+                        break;
+                    }
             }
         }
+        
         return arrayOfAvailableMoves;
     }
 }
