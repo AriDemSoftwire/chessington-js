@@ -42,6 +42,18 @@ describe('Pawn', () => {
             moves.should.be.empty;
         });
 
+        it('cannot eat white figures', () => {
+            const pawn = new Pawn(Player.WHITE);
+            const anotherPawn = new Pawn(Player.WHITE);
+
+            board.setPiece(Square.at(2, 2), pawn);
+            board.setPiece(Square.at(3, 3), anotherPawn);
+
+            const moves = pawn.getAvailableMoves(board);
+            moves.should.not.deep.include(Square.at(3, 3));
+
+        })
+
     });
 
     describe('black pawns', () => {
