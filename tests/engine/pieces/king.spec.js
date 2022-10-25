@@ -14,6 +14,7 @@ describe('King', () => {
         board.setPiece(Square.at(3, 4), king);
 
         const moves = king.getAvailableMoves(board);
+        console.log(moves);
 
         const expectedMoves = [
             Square.at(2, 3), Square.at(2, 4), Square.at(2, 5), Square.at(3, 5),

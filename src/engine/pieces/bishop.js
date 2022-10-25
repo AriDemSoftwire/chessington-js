@@ -1,6 +1,6 @@
-import Piece from './piece';
-import GameSettings from '../gameSettings';
-import Square from '../square';
+import Piece from "./piece";
+import GameSettings from "../gameSettings";
+import Square from "../square";
 
 export default class Bishop extends Piece {
     constructor(player) {
@@ -14,16 +14,19 @@ export default class Bishop extends Piece {
         for (let i = 0; i < GameSettings.BOARD_SIZE; i++) {
             for (let j = 0; j < GameSettings.BOARD_SIZE; j++) {
                 let availableSquare = Square.at(i, j);
-                if (Math.abs(currentSquare.row - availableSquare.row) === Math.abs(currentSquare.col - availableSquare.col)) {
-                    if (currentSquare.row !== availableSquare.row && currentSquare.col !== availableSquare.col) {
+                if (
+                    Math.abs(currentSquare.row - availableSquare.row) ===
+                    Math.abs(currentSquare.col - availableSquare.col)
+                ) {
+                    if (
+                        currentSquare.row !== availableSquare.row &&
+                        currentSquare.col !== availableSquare.col
+                    ) {
                         arrayOfAvailableMoves.push(availableSquare);
                     }
                 }
-               
             }
-        
         }
         return arrayOfAvailableMoves;
     }
-
 }

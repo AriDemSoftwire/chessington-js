@@ -1,7 +1,6 @@
-import Piece from './piece';
-import Square from '../square';
-import GameSettings from '../gameSettings';
-
+import Piece from "./piece";
+import Square from "../square";
+import GameSettings from "../gameSettings";
 
 export default class Rook extends Piece {
     constructor(player) {
@@ -14,13 +13,19 @@ export default class Rook extends Piece {
 
         for (let i = 0; i < GameSettings.BOARD_SIZE; i++) {
             let availableSquare = Square.at(i, currentSquare.col);
-            if (availableSquare.row !== currentSquare.row || availableSquare.col !== currentSquare.col) {
-            arrayOfAvailableMoves.push(availableSquare);
+            if (
+                availableSquare.row !== currentSquare.row ||
+                availableSquare.col !== currentSquare.col
+            ) {
+                arrayOfAvailableMoves.push(availableSquare);
             }
-            
+
             let availableSquare2 = Square.at(currentSquare.row, i);
-            if (availableSquare2.row !== currentSquare.row || availableSquare2.col !== currentSquare.col) {
-            arrayOfAvailableMoves.push(availableSquare2);
+            if (
+                availableSquare2.row !== currentSquare.row ||
+                availableSquare2.col !== currentSquare.col
+            ) {
+                arrayOfAvailableMoves.push(availableSquare2);
             }
         }
         return arrayOfAvailableMoves;
