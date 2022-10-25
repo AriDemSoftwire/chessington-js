@@ -31,6 +31,7 @@ describe('Bishop', () => {
         board.setPiece(Square.at(2, 3), bishop);
 
         const moves = bishop.getAvailableMoves(board);
+        console.log(moves[0], moves[1]);
 
         moves.should.have.length(11);
     });
